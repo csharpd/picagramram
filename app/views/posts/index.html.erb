@@ -2,8 +2,10 @@
   <% @posts.each do |post| %>
     <%= post.title %>
     <h2>Created by <%=User.find(post.user_id).email  %></h2>
+    <% if post.picture.present? %>
     <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-    <%end%>
+    <% end %>
+    <% end %>
 <%else%>
 <h2>No posts yet</h2>
 <%end%>

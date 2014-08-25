@@ -34,11 +34,11 @@ describe 'creating posts' do
       expect(page).to have_css 'img.uploaded-pic'
     end
 
-    # it 'displays no image if no post is attached' do
-    #   visit '/posts'
-    #   click_link 'New Post'
-    #   click_button 'Create Post'
-    #   expect(page).not_to have_css 'img.uploaded-pic'
-    # end
+    it 'displays no image if no post is attached' do
+      visit '/posts'
+      click_link 'New Post'
+      click_button 'Create Post'
+      expect(page).not_to have_css 'img.uploaded-pic'
+    end
   end
 end
