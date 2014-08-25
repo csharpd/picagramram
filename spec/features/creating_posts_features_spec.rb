@@ -14,6 +14,7 @@ describe 'creating posts' do
     click_button 'Create Post'
 
     expect(page).to have_content 'Indian Summer'
+    expect(page).to have_content 'Created by chloe@gmail.com'
     expect(current_path).to eq '/posts'
     end
   end

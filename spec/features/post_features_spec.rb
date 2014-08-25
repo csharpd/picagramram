@@ -10,7 +10,9 @@ describe 'posts' do
 
   context 'with posts' do
     before do
-      Post.create(title: 'My best pic yet')
+      chloe = User.create(email: 'chloe@gmail.com', password: '12345678', password_confirmation: '12345678')
+    login_as chloe
+    chloe.posts.create(title: 'My best pic yet')
     end
 
     it 'displays all the posts' do
