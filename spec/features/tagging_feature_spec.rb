@@ -12,7 +12,6 @@ describe 'tagging posts' do
     fill_in 'Tags', with: '#yolo #swag'
 
     click_button 'Create Post'
-    save_and_open_page
 
     expect(page).to have_link '#yolo'
     expect(page).to have_link '#swag'
@@ -33,5 +32,10 @@ describe 'filtering by tags' do
     expect(page).to have_css 'h1', text: 'Posts tagged with #swag'
     expect(page).to have_content 'Post A'
     expect(page).not_to have_content 'Post B'
+  end
+
+  it 'accessible via pretty URLs' do
+    visit '/tags/swag'
+    expect(page).to have_content 'Post A'
   end
 end
