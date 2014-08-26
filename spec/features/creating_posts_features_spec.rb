@@ -13,7 +13,7 @@ describe 'creating posts' do
     before do
     chloe = User.create(email: 'chloe@gmail.com', password: '12345678', password_confirmation: '12345678')
     login_as chloe
-  end
+    end
     it ' can create posts via a form' do
     visit '/posts'
     click_link 'New Post'
@@ -34,7 +34,7 @@ describe 'creating posts' do
       expect(page).to have_css 'img.uploaded-pic'
     end
 
-    it 'displays no image if no post is attached' do
+    it 'displays no image if no picture is attached' do
       visit '/posts'
       click_link 'New Post'
       click_button 'Create Post'

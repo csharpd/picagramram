@@ -2,6 +2,10 @@
   <% @posts.each do |post| %>
     <%= post.title %>
     <h2>Created by <%=User.find(post.user_id).email  %></h2>
+     <% post.tags.each do |tag| %>
+          <%= link_to tag.text, tag %>
+        <% end %>
+
     <% if post.picture.present? %>
     <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
     <% end %>
