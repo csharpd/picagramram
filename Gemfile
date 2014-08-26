@@ -31,6 +31,8 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'warden'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 gem 'devise'

@@ -1,9 +1,17 @@
 <%= post.title %>
-    <h2>Created by <%=User.find(post.user_id).email  %></h2>
-     <% post.tags.each do |tag| %>
-          <%= link_to tag.text, tag %>
-        <% end %>
 
-    <% if post.picture.present? %>
-    <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-    <% end %>
+<h2>Created by <%=User.find(post.user_id).email  %></h2>
+
+
+
+<% if post.picture.present? %>
+  <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+<% end %>
+
+<% post.tags.each do |tag| %>
+  <%= link_to tag.text, tag %>
+<% end %>
+
+<% unless post.address.blank? %>
+  <%= link_to 'Map', post_map_path(post) %>
+<% end %>
