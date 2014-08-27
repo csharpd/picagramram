@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   # resources :tags, only: [:show]
-  get '/tags/:name', to: "tags#show", as: "tag"
+  resources :tags
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
