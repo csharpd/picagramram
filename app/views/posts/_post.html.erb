@@ -9,7 +9,7 @@
 <% end %>
 
 <% post.tags.each do |tag| %>
-  <%= link_to tag.text, tag %>
+  <%= link_to tag.text, tag_path(tag) %>
 <% end %>
 
 <% unless post.address.blank? %>
