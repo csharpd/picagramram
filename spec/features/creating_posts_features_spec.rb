@@ -4,14 +4,13 @@ describe 'creating posts' do
   context 'Logged out' do
     it 'prompts user sign in/up' do
       visit '/posts'
-      click_link 'New Post'
-      expect(page).to have_content 'sign in'
+      expect(page).not_to have_link 'New Post'
     end
   end
 
   context 'Logged in' do
     before do
-      chloe = User.create(email: 'chloe@gmail.com', password: '12345678', password_confirmation: '12345678')
+      chloe = User.create(email: 'chloe@gmail.com', username: 'csharpd', password: '12345678', password_confirmation: '12345678')
       login_as chloe
     end
     it ' can create posts via a form' do
@@ -21,7 +20,7 @@ describe 'creating posts' do
     click_button 'Create Post'
 
     expect(page).to have_content 'Indian Summer'
-    expect(page).to have_content 'Created by chloe@gmail.com'
+    expect(page).to have_content 'csharpd'
     expect(current_path).to eq '/posts'
     end
 
