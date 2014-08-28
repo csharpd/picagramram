@@ -22,6 +22,8 @@
           <% unless post.address.blank? %>
             <%= link_to 'Map', post_map_path(post), class: "btn btn-md btn-danger" %>
           <% end %>
+
+          <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-md btn-danger" %>
       </div>
     </div>
 </article>
