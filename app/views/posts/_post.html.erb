@@ -3,6 +3,8 @@
   <div class="panel panel-default">
       <div class="panel-heading">
           <h2><%= post.title %></h2>
+           <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-md btn-danger" %>
+           <h4>Created by @<%=User.find(post.user_id).username  %></h4>
        </div>
 
       <div class="panel-body">
@@ -11,7 +13,7 @@
             <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
           <% end %>
 
-         <h4>Created by <%=User.find(post.user_id).username  %></h4>
+
 
         <section class='tags'>
           <% post.tags.each do |tag| %>
@@ -19,11 +21,12 @@
           <% end %>
         </section>
 
+
           <% unless post.address.blank? %>
-            <%= link_to 'Map', post_map_path(post), class: "btn btn-md btn-danger" %>
+          <h4> <%=post.address  %></h4>
+          <%= link_to 'Map', post_map_path(post), class: "btn btn-md btn-danger" %>
           <% end %>
 
-          <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-md btn-danger" %>
       </div>
     </div>
 </article>
