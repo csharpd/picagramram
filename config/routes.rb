@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :map
   end
 
+  # resources :tags, only: [:show]
   resources :tags
 
   # The priority is based upon order of creation: first created -> highest priority.

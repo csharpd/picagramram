@@ -11,8 +11,8 @@ describe 'creating posts' do
 
   context 'Logged in' do
     before do
-    chloe = User.create(email: 'chloe@gmail.com', password: '12345678', password_confirmation: '12345678')
-    login_as chloe
+      chloe = User.create(email: 'chloe@gmail.com', password: '12345678', password_confirmation: '12345678')
+      login_as chloe
     end
     it ' can create posts via a form' do
     visit '/posts'

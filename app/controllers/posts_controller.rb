@@ -22,4 +22,15 @@ before_action :authenticate_user!, except: [:index]
     @post = Post.find(params[:id])
   end
 
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Restaurant deleted successfully'
+    redirect_to '/posts'
+
+    rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "Can't delete - not your post"
+    redirect_to '/posts'
+  end
+
 end

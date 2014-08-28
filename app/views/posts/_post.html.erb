@@ -1,17 +1,32 @@
-<%= post.title %>
 
-<h2>Created by <%=User.find(post.user_id).email  %></h2>
+<article class='post col-sm-6 col-md-4'>
+  <div class="panel panel-default">
+      <div class="panel-heading">
+          <h2><%= post.title %></h2>
+           <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-md btn-danger" %>
+           <h4>Created by @<%=User.find(post.user_id).username  %></h4>
+       </div>
+
+      <div class="panel-body">
+
+          <% if post.picture.present? %>
+            <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+          <% end %>
 
 
 
-<% if post.picture.present? %>
-  <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-<% end %>
+        <section class='tags'>
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.text, tag_path(tag) %>
+          <% end %>
+        </section>
 
-<% post.tags.each do |tag| %>
-  <%= link_to tag.text, tag %>
-<% end %>
 
-<% unless post.address.blank? %>
-  <%= link_to 'Map', post_map_path(post) %>
-<% end %>
+          <% unless post.address.blank? %>
+          <h4> <%=post.address  %></h4>
+          <%= link_to 'Map', post_map_path(post), class: "btn btn-md btn-danger" %>
+          <% end %>
+
+      </div>
+    </div>
+</article>
