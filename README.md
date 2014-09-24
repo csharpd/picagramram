@@ -1,9 +1,12 @@
 Picagram
 =========
 
-A photosharing website - To view, visit: http://picagram.herokuapp.com/
+A photosharing website
 
 ![](app/assets/images/screenshot.png)
+
+####Deployed
+To view, visit: http://picagram.herokuapp.com/
 
 ###Objectives
 
