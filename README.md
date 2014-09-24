@@ -1,7 +1,7 @@
 Picagram
 =========
 
-Instagram clone - to view, visit: http://picagram.herokuapp.com/
+A photosharing website - To view, visit: http://picagram.herokuapp.com/
 
 ![](app/assets/images/screenshot.png)
 
@@ -43,7 +43,7 @@ bundle install
 ###Run
 
 ```sh
-cd picagrams
+cd picagram
 rails s
 ```
 Open the browser at localhost:3000 to view the app
